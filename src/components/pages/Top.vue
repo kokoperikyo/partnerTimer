@@ -121,7 +121,7 @@
       <v-row justify="center" class="mt-5" v-show="isStOneOrTwo">
         <v-btn @click="resetSt" color="#4F5FB0" outlined rounded width="100px">終了</v-btn>
       </v-row>
-      <div v-show="isStEleven">
+      <div v-if="isStEleven">
         <v-card flat color="#4F5FB0" dark class="pa-2">
           <v-card
             flat
@@ -132,7 +132,7 @@
           <div class="mt-2 px-2">{{getFinishTime}}以降におやつ・なでる・スナップショットを実行してください</div>
         </v-card>
       </div>
-      <div v-show="isStTwelve">
+      <div v-if="isStTwelve">
         <v-card flat color="#4F5FB0" dark class="pa-2">
           <v-card
             flat
