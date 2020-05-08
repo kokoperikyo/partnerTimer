@@ -1,5 +1,16 @@
 <template>
-  <div>first</div>
+  <div class="content">
+    <v-row>
+      <v-col cols="3"></v-col>
+      <v-col cols="6" align="center">
+        <v-img
+          width="280px"
+          src="https://firebasestorage.googleapis.com/v0/b/partnertimer-46d47.appspot.com/o/iconForFirst.jpg?alt=media&token=d6c168d9-5f70-4793-a603-35506a1b0b29"
+        ></v-img>
+      </v-col>
+      <v-col cols="3"></v-col>
+    </v-row>
+  </div>
 </template>
 <script>
 import { db } from "@/plugins/firebase";
@@ -36,3 +47,8 @@ export default {
   }
 };
 </script>
+<style>
+.content {
+  margin-top: 200px;
+}
+</style>
