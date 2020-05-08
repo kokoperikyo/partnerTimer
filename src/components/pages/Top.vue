@@ -1,5 +1,12 @@
 <template>
   <div>
+    <v-dialog v-model="notionUnDeleteDialog" max-width="400">
+      <v-card class="pa-3" color="#4F5FB0">
+        <v-card class="pa-3" color="#EFAD00">
+          <div style="font-size:14px; text-align:center;">最後に設定した通知は届いてしまいます</div>
+        </v-card>
+      </v-card>
+    </v-dialog>
     <v-dialog v-model="repetitionDialog" max-width="400">
       <v-card class="pa-3" color="#4F5FB0">
         <ul>
@@ -118,9 +125,7 @@
       <v-row justify="center" class="mt-5" v-show="isStTwo">
         <v-btn @click="setNotionOnceEach(2)" color="#4F5FB0" dark rounded width="200px">バトル完了</v-btn>
       </v-row>
-      <v-row justify="center" class="mt-5" v-show="isStOneOrTwo">
-        <v-btn @click="resetSt" color="#4F5FB0" outlined rounded width="100px">終了</v-btn>
-      </v-row>
+
       <div v-if="isStEleven">
         <v-card flat color="#4F5FB0" dark class="pa-2">
           <v-card
@@ -129,7 +134,7 @@
             style="color:black;"
             class="px-2"
           >{{getCreatedTime}}にバトル完了しました</v-card>
-          <div class="mt-2 px-2">{{getFinishTime}}以降におやつ・なでる・スナップショットを実行してください</div>
+          <div class="mt-2 px-2">{{getFinishTime}}以降におやつ・なでる・スナップショットをasas実行してください</div>
         </v-card>
       </div>
       <div v-if="isStTwelve">
@@ -143,6 +148,9 @@
           <div class="mt-2 px-2">{{getFinishTime}}以降にバトルしてください</div>
         </v-card>
       </div>
+      <v-row justify="center" class="mt-5" v-show="isStAction">
+        <v-btn @click="resetSt" color="#4F5FB0" outlined rounded width="100px">終了</v-btn>
+      </v-row>
     </div>
   </div>
 </template>
@@ -166,7 +174,8 @@ export default {
       startDialog: false,
       onceEachDialog: false,
       otherStartDialog: false,
-      battleStartDialog: false
+      battleStartDialog: false,
+      notionUnDeleteDialog: false
     };
   },
   mounted() {
@@ -230,6 +239,9 @@ export default {
         .set({
           st: 0
         });
+      if (this.newWhichNotionSt == 11 || this.newWhichNotionSt == 12) {
+        this.notionUnDeleteDialog = true;
+      }
     }
   },
   watch: {
@@ -276,8 +288,8 @@ export default {
         return false;
       }
     },
-    isStOneOrTwo() {
-      if (this.newWhichNotionSt == 1 || this.newWhichNotionSt == 2) {
+    isStAction() {
+      if (this.newWhichNotionSt != 0) {
         return true;
       } else {
         return false;

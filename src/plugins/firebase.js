@@ -10,14 +10,14 @@ Vue.use(firestorePlugin)
 
 const firebaseApp = firebase.initializeApp({
   // ここにfirebaseのapi情報をコピペします。
-  apiKey: "AIzaSyCpym3Fearz45FR8oN6z5y79XX-P9uQkxA",
-  authDomain: "devpartnertimer.firebaseapp.com",
-  databaseURL: "https://devpartnertimer.firebaseio.com",
-  projectId: "devpartnertimer",
-  storageBucket: "devpartnertimer.appspot.com",
-  messagingSenderId: "973728853399",
-  appId: "1:973728853399:web:587e04861db13491baa8d2",
-  measurementId: "G-CJ2KVL3LYW"
+  apiKey: "AIzaSyB5xGhEdQQy0eCHcWQqY5-rnI2IAvYGgnU",
+  authDomain: "partnertimer-46d47.firebaseapp.com",
+  databaseURL: "https://partnertimer-46d47.firebaseio.com",
+  projectId: "partnertimer-46d47",
+  storageBucket: "partnertimer-46d47.appspot.com",
+  messagingSenderId: "607371623460",
+  appId: "1:607371623460:web:ed67a6190005256a24ecb1",
+  measurementId: "G-KP0XQQ7ZJH"
 
 });
 

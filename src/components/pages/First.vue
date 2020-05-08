@@ -20,7 +20,13 @@ export default {
         .set({
           st: 0
         });
-      window.webkit.messageHandlers.callbackHandler.postMessage(result);
+      //スマホログインの場合はid渡してtopicに登録
+      var ua = navigator.userAgent;
+      if (ua.indexOf("Android") > 0) {
+        window.appJsInterface.subscribeUid(result);
+      } else if (window.innerWidth <= 1024) {
+        window.webkit.messageHandlers.callbackHandler.postMessage(result);
+      }
       setTimeout(() => {
         this.$router.push("/top");
       }, 3000);
